@@ -1,0 +1,87 @@
+            ##Homework 1
+
+## R long method begins! Q9
+
+s1 <- c(6981,7099,6930,6992,7518,7100,6935,7518,7013,6800,7041,6890)
+t1 <-sum(s1)
+l1 <- length(s1)
+m1 <- t1/l1
+ssquare <- (1/(l1-1))*sum((s1-m1)^2)
+s <- sqrt(ssquare)
+
+## R long method ends
+
+## R easy way begings!  Q9
+
+s2 <- c(6981,7099,6930,6992,7518,7100,6935,7518,7013,6800,7041,6890)
+mean(s2)
+sd(s2)
+## R easy way ends
+
+## R long method begins! Q11
+
+s3 <- c(36.45,67.90,38.77,42.18,26.72,50.77,39.30,49.71)
+t3 <- sum(s3)
+l3 <- length(s3)
+m3 <- t3/l3
+ssquare <- (1/(l3-1))*sum((s3-m3)^2)
+s <- sqrt(ssquare)
+
+## R long method ends
+
+## R easy way begings Q11
+
+s4 <- c(36.45,67.90,38.77,42.18,26.72,50.77,39.30,49.71)
+mean(s4)
+sd(s4)
+
+## R easy way ends
+
+                  ##Homework 2
+
+ch06 <- read.csv("ch06.csv",header=TRUE)
+
+##R Solution Q23
+
+x <- na.omit(ch06$EX.6.23);
+stem(x)
+summary(x)
+
+## R Solution ends
+
+## R Solution Q43 - using table from Q23
+
+histogramx <- hist(x, breaks=8)
+plot(histogramx)
+hist(x, breaks=16) ## Both histograms show the same information
+
+## R solution ends
+
+## R Solution Q33
+
+x<- na.omit(ch06$Ex.6.33);
+stem(x)
+summary(x)
+mean(x)
+sd(x)
+quantile(x, seq(0,1,0.1))
+
+## R solution ends
+
+## R solution Q49
+
+hist(x)
+   ## Same shape as stem(x)
+
+## R solution ends
+
+## R solution Q53
+
+X <- na.omit(ch06$EX.6.53);
+mean(x)
+sd(x)
+var(x)
+boxplot(x)
+
+## R solution ends
+ 
