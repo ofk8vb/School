@@ -1,4 +1,4 @@
-            ##Homework 1
+              ##Homework 1
 
 ## R long method begins! Q9
 
@@ -84,4 +84,125 @@ var(x)
 boxplot(x)
 
 ## R solution ends
+
+    ##Homework 2
+ch08 <- read.csv("ch08.csv",header=TRUE)
+
+##R solution Q3
+
+qnorm(0.90)
+qnorm(0.95)
+qnorm(0.99)
+
+##R solution ends
+
+## R solution Q11
+
+d <- na.omit(ch08$Ex8.11)
+n <- length(d);n  ## length of the vector
+xb <- mean(d);xb  ## mean
+sigma <- 3   ## variance
+alpha <- (1-0.95) ## 1 - confidence interval being asked
+
+me <- qnorm(alpha/2,lower.tail=FALSE)*sigma/sqrt(n) ## margin of error
+l <- xb-me  ## two sided confidence interval of true mean yield
+u <- xb+me
+
+## R solution ends
+
+## R solution Q23
+
+  ## Two-sided
+  #Confidence level = 95%, degrees of freedom =12
+qt((1-0.95)/2,12,lower.tail=FALSE)
+
+  #Confidence level = 95%, degrees of freedom =24
+qt((1-0.95)/2,24,lower.tail=FALSE)
  
+  #Confidence level = 99%, degrees of freedom =13
+qt((1-0.95)/2,24,lower.tail=FALSE)
+
+   #Confidence level = 99.9%, degrees of freedom =15
+qt((1-0.99)/2,15,lower.tail=FALSE)
+
+## R solution ends
+
+## R solution Q24
+
+   ## One-sided
+   ## Confidence level = 95%, degrees of freedom =14
+qt((1-0.95),14,lower.tail=FALSE)
+
+## R solution ends
+
+## R solutions Q29
+
+n = 25 # length of the sample
+xb = 1.10 # mean = xbar
+s = 0.015 # standart variance = sigma
+alpha = (1-0.95)  # 1- confidence interval asked
+me <- qnorm(alpha/2,lower.tail=FALSE)*s/sqrt(n);me # margin of error
+l <- xb-me ## lower bound
+u <- xb+me
+
+## R solution ends
+
+## R solution Q33
+
+data <- na.omit(data.frame(rain=ch08$Ex8.33))
+data$rain
+n <-length(data$rain);n
+xb <- mean(data$rain); xb
+s <- sd(data$rain); s
+alpha <- (1-0.95); alpha
+me <- qt(alpha/2,(n-1),lower.tail=FALSE)*sigma/sqrt(n); me
+l <- xb-me ;l
+u<- xb+me ;u
+
+hist(data$rain)
+qqnorm(data$rain, datax=TRUE) ## Matches the histogram
+
+## R solution ends
+
+## R solution Q41
+
+data <- na.omit(data.frame(rods=ch08$Ex8.41))
+data$rods
+n <- nrow(data);n
+xb <- mean(data$rods); xb
+s <- sd(data$rods); s
+alpha <- (1-0.99); alpha
+me <- qt(alpha/2,(n-1),lower.tail=FALSE)*s/sqrt(n); me
+l <- xb-me
+u <- xb+me
+
+## R solution ends
+
+## R solutionn Q43
+
+  # Confidence level = 95%, degrees of freedom = 24, one sided upper
+qchisq((1-0.95),24,lower.tail = TRUE))
+
+  ## Confidence level = 90%, degrees of freedom = 19 , two sided upper
+u <-qchisq((1-0.90),2,19,lower.tail = FALSE)
+l <- qchisq((1-0.90),2.19,lower.tail=TRUE)
+
+## R solution ends
+
+## R solution Q49
+
+data <- na.omit(data.frame(weather=ch08$Ex8.49.1))
+n <- nrow(data);n
+xb <- mean(data$weather); xb
+s <- sd(data$weather) ; s
+alpha <- (1-0.95); alpha
+l <- (n-1)*s^2/qchisq(alpha/2,n-1,lower.tail=FALSE)
+U <- (n-1)*s^2/qchisq(alpha/2,n-1,lower.tail=TRUE)
+
+sqrt(l)
+sqrt(u)
+
+## R solution ends
+
+x<-rexp(1000,5)
+hist(x)
